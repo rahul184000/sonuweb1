@@ -12,6 +12,9 @@ router.get('/', function(req, res, next) {
 router.get('/form', function(req, res, next) {
   res.render('form', { title: 'Form' });
 });
+router.get('/forgot', function(req, res, next) {
+  res.render('reset', { title: 'Reset' });
+});
 router.get('/signup', function(req, res, next) {
   res.render('register', { title: 'register' });
 });
@@ -81,9 +84,27 @@ router.post('/login', async function(req, res, next) {
   if(UserData){
     if(UserData.email === req.body.email && UserData.password === req.body.password){
       res.render("card", {cardData})
+    }else{
+      res.send("Username and password invalid")
     }
   }else{
     res.send("Username and password invalid")
+  }
+});
+router.post('/reset', async function(req, res, next) {
+  let UserData = await UserModal.findOne({email: req.body.email})
+  if(UserData){
+    res.render("confirm", {UserData})
+  }else{
+    res.send("User not registered")
+  }
+});
+router.post('/confirm', async function(req, res, next) {
+  let UserData = await UserModal.findOneAndUpdate({email: req.body.email}, {password: req.body.password})
+  if(UserData){
+    res.render("login", {Message: "Password changed"})
+  }else{
+    res.send("User not registered")
   }
 });
 router.post("/cards", async (req, res)=>{

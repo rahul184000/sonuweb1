@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/images/logo.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Password</title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
+</head>
+<body>
+    <div class="row m-0 justify-content-center mt-5">
+        <div class="col-10">
+            <form action="/confirm" method="post">
+                <h1>Reset Password</h1>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Passowrd</label>
+                  <input type="text" class="form-control" name="password" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter password">
+                  <input type="email" hidden value="<%=UserData.email%>" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter password">
+                </div>
+                <button type="submit" class="btn btn-primary mt-4 form-control">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
